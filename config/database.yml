@@ -15,7 +15,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: testdb
+  database: dnywcgfesx
   pool: 5
   username: dnywcgfesx
   password: SgYY6Z5od7Gq8iNxPDEC
@@ -43,7 +43,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: crm_test
+  database: dnywcgfesx
   pool: 5
   username: dnywcgfesx
   password: SgYY6Z5od7Gq8iNxPDEC
@@ -53,7 +53,7 @@ test:
 production:
   adapter: postgresql
   encoding: unicode
-  database: crm_production
+  database: dnywcgfesx
   pool: 5
   username: dnywcgfesx
   password: SgYY6Z5od7Gq8iNxPDEC

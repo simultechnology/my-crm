@@ -17,10 +17,8 @@ development:
   encoding: unicode
   database: testdb
   pool: 5
-  username: dnywcgfesx
-  password: SgYY6Z5od7Gq8iNxPDEC
-  port: 5432
-  host: ec2-107-21-251-218.compute-1.amazonaws.com
+  username: crm
+  password: crm
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -45,18 +43,13 @@ test:
   encoding: unicode
   database: crm_test
   pool: 5
-  username: dnywcgfesx
-  password: SgYY6Z5od7Gq8iNxPDEC
-  port: 5432
-  host: ec2-107-21-251-218.compute-1.amazonaws.com
+  username: crm
+  password:
 
 production:
   adapter: postgresql
   encoding: unicode
   database: crm_production
   pool: 5
-  username: dnywcgfesx
-  password: SgYY6Z5od7Gq8iNxPDEC
-  port: 5432
-  host: ec2-107-21-251-218.compute-1.amazonaws.com
-
+  username: crm
+  password:

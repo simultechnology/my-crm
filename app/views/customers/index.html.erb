@@ -3,7 +3,7 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Kana</th>
+    <th>Name kana</th>
     <th>Tel number</th>
     <th>Fax number</th>
     <th>Web site</th>
@@ -20,7 +20,7 @@
 <% @customers.each do |customer| %>
   <tr>
     <td><%= customer.name %></td>
-    <td><%= customer.kana %></td>
+    <td><%= customer.name_kana %></td>
     <td><%= customer.tel_number %></td>
     <td><%= customer.fax_number %></td>
     <td><%= customer.website %></td>

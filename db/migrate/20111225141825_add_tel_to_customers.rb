@@ -5,7 +5,7 @@ class AddTelToCustomers < ActiveRecord::Migration
 
     create_table :customers do |t|
       t.string :name
-      t.string :name_kana
+      t.string :kana
       t.string :tel_number
       t.string :fax_number
       t.string :website

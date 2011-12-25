@@ -1,4 +1,8 @@
 Crm::Application.routes.draw do
+  resources :clients
+
+  resources :products
+
   resources :customers
 
   get "sessions/new"
@@ -65,7 +69,7 @@ Crm::Application.routes.draw do
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
 
-  root to: 'customers#new', as: 'customer'
+  root to: 'customers#new'#, as: 'customer'
 
   # See how all your routes lay out with "rake routes"
 

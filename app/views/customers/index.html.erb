@@ -3,13 +3,15 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Name kana</th>
+    <th>Kana</th>
     <th>Tel number</th>
     <th>Fax number</th>
-    <th>Website</th>
+    <th>Web site</th>
     <th>Leadsource</th>
     <th>Status</th>
     <th>Priority</th>
+    <th>Memo</th>
+
     <th></th>
     <th></th>
     <th></th>
@@ -18,13 +20,14 @@
 <% @customers.each do |customer| %>
   <tr>
     <td><%= customer.name %></td>
-    <td><%= customer.name_kana %></td>
+    <td><%= customer.kana %></td>
     <td><%= customer.tel_number %></td>
     <td><%= customer.fax_number %></td>
     <td><%= customer.website %></td>
     <td><%= customer.leadsource %></td>
     <td><%= customer.status %></td>
     <td><%= customer.priority %></td>
+    <td><%= customer.memo %></td>
     <td><%= link_to 'Show', customer %></td>
     <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
     <td><%= link_to 'Destroy', customer, confirm: 'Are you sure?', method: :delete %></td>

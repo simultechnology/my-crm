@@ -2,20 +2,8 @@
 
 one:
   name: MyString
-  name_kana: MyString
-  tel_number: MyString
-  fax_number: MyString
-  website: MyString
-  leadsource: MyString
-  status: MyString
-  priority: MyString
+  kana: MyString
 
 two:
   name: MyString
-  name_kana: MyString
-  tel_number: MyString
-  fax_number: MyString
-  website: MyString
-  leadsource: MyString
-  status: MyString
-  priority: MyString
+  kana: MyString

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?><component name="dataSourceStorage">
+  <data-source source="LOCAL" name="Rails crm: production" product="" version="" jdbc-version="" driver-version="" uuid="9e10db40-42b5-4f0b-9417-05d2656d5453">
+    <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+    <jdbc-url>jdbc:postgresql:crm_production</jdbc-url>
+    <user-name>crm</user-name>
+    <libraries>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine32/config/jdbc-drivers/postgresql-driver-license.txt</url>
+      </library>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine32/config/jdbc-drivers/postgresql-9.0-801.jdbc4.jar</url>
+      </library>
+    </libraries>
+  </data-source>
+  <data-source source="LOCAL" name="Rails crm: test" product="" version="" jdbc-version="" driver-version="" uuid="676a1a6a-adbf-4098-9265-09c165ac4e31">
+    <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+    <jdbc-url>jdbc:postgresql:crm_test</jdbc-url>
+    <user-name>crm</user-name>
+    <libraries>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine32/config/jdbc-drivers/postgresql-driver-license.txt</url>
+      </library>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine32/config/jdbc-drivers/postgresql-9.0-801.jdbc4.jar</url>
+      </library>
+    </libraries>
+  </data-source>
+  <data-source source="LOCAL" name="Rails crm: development" product="" version="" jdbc-version="" driver-version="" uuid="07fbaf02-b86d-439e-94a7-4e88c13a45cf">
+    <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+    <jdbc-url>jdbc:postgresql:testdb</jdbc-url>
+    <user-name>crm</user-name>
+    <user-password>dfc9dfd8dfc7</user-password>
+    <libraries>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine32/config/jdbc-drivers/postgresql-driver-license.txt</url>
+      </library>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine32/config/jdbc-drivers/postgresql-9.0-801.jdbc4.jar</url>
+      </library>
+    </libraries>
+  </data-source>
+</component>

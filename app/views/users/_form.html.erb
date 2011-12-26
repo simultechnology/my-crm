@@ -19,11 +19,7 @@
     <%= f.label :password %><br />
     <%= f.password_field :password %>
   </div>
-  <div class="field">
-    <%= f.label :del_flg %><br />
-    <%= f.check_box :del_flg %>
-  </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :value => '登録' %>
   </div>
 <% end %>

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class CustomersController < ApplicationController
   before_filter :authorize
   # GET /customers
@@ -45,7 +46,7 @@ class CustomersController < ApplicationController
 
     respond_to do |format|
       if @customer.save
-        format.html { redirect_to @customer, notice: 'Customer was successfully created.' }
+        format.html { redirect_to @customer, notice: '以下の情報が登録されました。' }
         format.json { render json: @customer, status: :created, location: @customer }
       else
         format.html { render action: "new" }

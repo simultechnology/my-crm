@@ -1,0 +1,286 @@
+<p id="notice"><%= notice %></p>
+			<div id="kihon_shousai">
+            <%= form_for @customer, :url => {:action => 'update'} do |f| %>
+				<h1>詳細</h1>
+				<p class="btn"><%= f.submit :value => '更新' %><input type="button" value="削除"></p>
+				<h2>基本情報</h2>
+			<table>
+			<tbody>
+            <tr>
+				<td>
+					<p class="name">会社名</p>
+					<p class="area"><%= f.text_field :name, :maxlength => 20, :size => 50 %></p>
+				</td>
+				<td>
+					<p class="name">リードソース</p>
+					<p class="area"><select name="lead_source">
+					<option label="" value="Word of mouth"></option>
+					<option label="勧誘電話" value="Cold Call">勧誘電話</option>
+					<option label="既存顧客" value="Existing Customer">既存顧客</option>
+					<option label="自然発生" value="Self Generated">自然発生</option>
+					<option label="社員" value="Employee">社員</option>
+					<option label="パートナー" value="Partner">パートナー</option>
+					<option label="広報活動" value="Public Relations">広報活動</option>
+					<option label="ダイレクトメール" value="Direct Mail">ダイレクトメール</option>
+					<option label="カンファレンス" value="Conference">カンファレンス</option>
+					<option label="展示会" value="Trade Show">展示会</option>
+					<option label="Webサイト" value="Web Site">Webサイト</option>
+					<option label="口コミ" value="Word of mouth">口コミ</option>
+					<option label="電子メール" value="Email">電子メール</option>
+					<option label="キャンペーン" value="Campaign">キャンペーン</option>
+					<option label="その他" value="Other">その他</option>
+					</select>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p class="name">会社電話番号</p>
+					<p class="area"><%= f.text_field :tel_number, :maxlength => 20, :size => 50  %></p>
+				</td>
+				<td>
+					<p class="name">会社FAX番号</p>
+					<p class="area"><%= f.text_field :fax_number, :maxlength => 20, :size => 50  %></p>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p class="name">WEBサイト</p>
+					<p class="area"><%= f.text_field :website, :maxlength => 20, :size => 50  %></p>
+				</td>
+				<td>
+					<p class="name">重要度</p>
+					<p class="area"><select name="lead_source">
+					<option label="" value=""></option>
+					<option label="小" value="Cold Call">小</option>
+					<option label="中" value="Word of mouth">中</option>
+					<option label="大" value="Other">大</option>
+					</select></p>
+				</td>
+			</tr>
+			</tbody>
+            </table>
+<% end %>
+			</div>
+
+
+			<div id="shozai">
+				<h2>所在地一覧　<input type="button" value="一覧表示"><input type="button" value="GoogleMAPで表示"></h2>
+				<table class="ichiran">
+					<tbody><tr>
+						<th>選択</th>
+						<th>分類</th>
+						<th>名称</th>
+						<th>郵便番号</th>
+						<th>都道府県</th>
+						<th>市区町村</th>
+						<th>大字</th>
+						<th>丁目・番地</th>
+						<th>ビル名</th>
+					</tr>
+					<tr>
+						<td>
+							<a href="shozaihenshuu.html">詳細</a>
+						</td>
+						<td>
+							本社
+						</td>
+						<td>
+							lunasandの本社
+						</td>
+						<td>
+							1000000
+						</td>
+						<td>
+							東京都
+						</td>
+						<td>
+							千代田区
+						</td>
+						<td>
+							赤坂
+						</td>
+						<td>
+							１－１
+						</td>
+						<td>
+							ｘｘｘビル
+						</td>
+					</tr>
+
+					<tr>
+						<td>
+							<a href="shozaihenshuu.html">詳細</a>
+						</td>
+						<td>
+							コース
+						</td>
+						<td>
+							千葉県ｘｘｘコース
+						</td>
+						<td>
+							2720111
+						</td>
+						<td>
+							千葉県
+						</td>
+						<td>
+							千葉市
+						</td>
+						<td>
+							千葉
+						</td>
+						<td>
+							１－１
+						</td>
+						<td>
+
+						</td>
+					</tr>
+				</tbody></table>
+			</div>
+
+
+			<div id="renrakusaki">
+				<h2>連絡先一覧　<input type="button" value="一覧表示"></h2>
+				<table class="ichiran">
+					<tbody><tr>
+						<th>選択</th>
+						<th>部署名</th>
+						<th>名前</th>
+						<th>フリガナ</th>
+						<th>会社電話番号</th>
+						<th>携帯電話</th>
+						<th>FAX</th>
+						<th>E-mail</th>
+						<th>職位</th>
+						<th>誕生日</th>
+						<th>家族構成</th>
+						<th>趣味</th>
+					</tr>
+					<tr>
+						<td>
+							<a href="shozaihenshuu.html">詳細</a>
+						</td>
+						<td>
+							ｘｘ事業部
+						</td>
+						<td>
+							山田太郎
+						</td>
+						<td>
+							ヤマダタロウ
+						</td>
+						<td>
+							03-0000-0000
+						</td>
+						<td>
+							090-0000-0000
+						</td>
+						<td>
+							03-0000-0000
+						</td>
+						<td>
+							aa@a.a
+						</td>
+						<td>
+							社長
+						</td>
+						<td>
+							1970/1/1
+						</td>
+						<td>
+							嫁、長女、長男
+						</td>
+						<td>
+							釣り
+						</td>
+					</tr>
+				</tbody></table>
+			</div>
+
+
+			<div id="shoudan">
+				<h2>商談一覧　<input type="button" value="一覧表示"></h2>
+				<table class="ichiran">
+					<tbody><tr>
+						<th>選択</th>
+						<th>商談名</th>
+						<th>商談日</th>
+						<th>名称</th>
+						<th>顧客担当者</th>
+						<th>自社担当者</th>
+						<th>受注有無</th>
+						<th>受注確度</th>
+						<th>受注商品名</th>
+						<th>受注量</th>
+						<th>受注額</th>
+					</tr>
+					<tr>
+						<td>
+							<a href="shozaihenshuu.html">詳細</a>
+						</td>
+						<td>
+							ｘｘ
+						</td>
+						<td>
+							2011/12/17
+						</td>
+						<td>
+							千葉県ｘｘコース
+						</td>
+						<td>
+							田中一郎
+						</td>
+						<td>
+							宍戸路子
+						</td>
+						<td>
+							有
+						</td>
+						<td>
+							100%
+						</td>
+						<td>
+							ｘｘ砂
+						</td>
+						<td>
+							１００ｋｇ
+						</td>
+						<td>
+							１００万円
+						</td>
+					</tr>
+				</tbody></table>
+			</div>
+
+
+			<div id="katudou">
+				<h2>活動一覧　<input type="button" value="一覧表示"></h2>
+				<table class="ichiran">
+					<tbody><tr>
+						<th>選択</th>
+						<th>活動名</th>
+						<th>活動日</th>
+						<th>対応者</th>
+						<th>顧客担当者</th>
+					</tr>
+					<tr>
+						<td>
+							<a href="shozaihenshuu.html">詳細</a>
+						</td>
+						<td>
+							ｘｘ社への営業活動
+						</td>
+						<td>
+							2011/12/17
+						</td>
+						<td>
+							吉田花子
+						</td>
+						<td>
+							田中一郎
+						</td>
+					</tr>
+				</tbody></table>
+			</div>

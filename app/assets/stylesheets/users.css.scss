@@ -1,7 +1,7 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-body {
+body#sessions {
     background-color: #F2F2F2;
 }
 
@@ -34,6 +34,7 @@ body {
     font-size: 1.6em;
     font-weight: bolder;
     padding-bottom: 2px;
+    padding-left: 0px;
 }
 
 #login-form div {
@@ -43,6 +44,10 @@ body {
 
 #login-form input {
     height: 20px;
+}
+
+#login-form input[type="submit"] {
+    height: 30px;
 }
 
 #login-form input[type="text"], input[type="password"] {

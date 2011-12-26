@@ -1,0 +1,49 @@
+<p id="notice"><%= flash[:notice] %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @customer.name %>
+</p>
+
+<p>
+  <b>Kana:</b>
+  <%= @customer.kana %>
+</p>
+
+<p>
+  <b>Tel number:</b>
+  <%= @customer.tel_number %>
+</p>
+
+<p>
+  <b>Fax number:</b>
+  <%= @customer.fax_number %>
+</p>
+
+<p>
+  <b>Website:</b>
+  <%= @customer.website %>
+</p>
+
+<p>
+  <b>Leadsource:</b>
+  <%= @customer.leadsource %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @customer.status %>
+</p>
+
+<p>
+  <b>Priority:</b>
+  <%= @customer.priority %>
+</p>
+
+<p>
+  <b>Memo:</b>
+  <%= @customer.memo %>
+</p>
+
+<%= link_to 'Edit', edit_customer_path(@customer) %> |
+<%= link_to 'Back', :controller => 'search' %>

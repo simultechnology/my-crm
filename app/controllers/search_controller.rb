@@ -2,7 +2,7 @@
 class SearchController < ApplicationController
   before_filter :authorize
   def index
-    @customers = Customer.all
+    @customers = Customer.order('updated_at DESC')
 
     respond_to do |format|
       format.html # index.html.erb

@@ -20,11 +20,110 @@
 	</div>
 
 	<div id="wrapper">
-      <%= yield %>
-	</div>
+      <div id="upper">
+	<h1>検索</h1>
+	<h2>検索対象</h2>
+	<p class="name"></p>
+	<p class="area"><select name="pref_name">
+	<option value="取引先">取引先
+	</option><option value="連絡先">連絡先
+	</option><option value="商談">商談
+	</option><option value="活動">活動
+	</option></select></p>
 </div>
 
-
-
+<div class="middle">
+<h2>検索条件</h2>
+<p></p>
+    <%= form_tag :action => 'search' do |f| %>
+    <p></p>
+<table>
+<tbody><tr>
+	<td>
+		<p class="name">会社名</p>
+		<p class="area">
+          <input type="checkbox" value="その1" name="q1">
+          <input type="text" maxlength="20" size="50" name="name" value="<%= @search[:name] %>">
+        </p>
+	</td>
+	<td>
+		<p class="name">リードソース</p>
+		<p class="area"><input type="checkbox" value="その1" name="q1">
+            <%= select_tag(:leadsource, options_for_select(leadsource_options, :selected => @search[:leadsource])) %>
+		</p>
+	</td>
+</tr>
+<tr>
+	<td>
+		<p class="name">分類</p>
+			<p class="area">
+              <input type="checkbox" value="その1" name="q1">
+              <%= select_tag(:customer_type, options_for_select(customer_type_options, :selected => @search[:customer_type])) %>
+            </p>
+	</td>
+	<td>
+		<p class="name">名称</p>
+		<p class="area"><input type="checkbox" value="その1" name="q1">
+        <input type="text" maxlength="20" size="50" name="customer_type_name" value="<%= @search[:customer_type_name] %>"></p>
+	</td>
+</tr>
+<tr>
+	<td>
+		<p class="name">都道府県</p>
+		<p class="area">
+          <input type="checkbox" value="その1" name="q1">
+          <%= select_tag(:prefecture_cd, options_for_select(prefecture_options, :selected => @search[:prefecture_cd])) %>
+        </p>
+	</td>
+	<td>
+		<p class="name">市区町村</p>
+		<p class="area"><input type="checkbox" value="その1" name="q1">
+        <input type="text" maxlength="20" size="50" name="city_oaza_town" value="<%= @search[:city_oaza_town] %>"></p>
+	</td>
+</tr>
+<tr>
+	<td>
+		<p class="name">ビル名</p>
+		<p class="area">
+          <input type="checkbox" value="その1" name="q1">
+          <input type="text" maxlength="20" size="50" name="building_name" value="<%= @search[:building_name] %>">
+        </p>
+	</td>
+</tr>
+<tr>
+	<td>
+		<p class="btn">
+          <input type="submit" value="検索" >
+          </p>
+	</td>
+</tr>
+</tbody>
+</table>
+<% end %>
+</div>
+<div id="lower">
+<h2>取引先一覧</h2>
+<table class="ichiran">
+	<tbody>
+        <tr>
+		<th>選択</th>
+		<th>商談回数</th>
+		<th>活動回数</th>
+		<th>重要度</th>
+		<th>会社名</th>
+		<th>リードソース</th>
+		<th>分類</th>
+		<th>名称</th>
+		<th>都道府県</th>
+		<th>市区町村</th>
+		<th>ビル名</th>
+		<th>登録日</th>
+	    </tr>
+      <%= yield %>
+    </tbody>
+</table>
+</div>
+	</div>
+</div>
 </body>
 </html>

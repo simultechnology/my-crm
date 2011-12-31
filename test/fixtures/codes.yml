@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  type: 
+  val: MyString
+  name: MyString
+  order: 1
+  del_flg: false
+
+two:
+  type: 
+  val: MyString
+  name: MyString
+  order: 1
+  del_flg: false

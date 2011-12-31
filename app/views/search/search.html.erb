@@ -1,2 +1,40 @@
-<h1>Search#search</h1>
-<p>Find me in app/views/search/search.html.erb</p>
+<% @customertypes.each do |c| %>
+<tr>
+	<td>
+      <%= link_to '詳細', :controller => 'search', :action => 'show', :id => c.customer.id %>
+	</td>
+	<td>
+		１０
+	</td>
+	<td>
+		３０
+	</td>
+	<td>
+		<%= priority_name(c.customer.priority) %>
+	</td>
+	<td>
+	   <%= c.customer.name %>
+	</td>
+	<td>
+		<%= leadsource_name(c.customer.leadsource) %>
+	</td>
+	<td>
+		<%= customer_type_cd_name(c.customer_type) %>
+	</td>
+	<td>
+		<%= c.customer_type_name %>
+	</td>
+	<td>
+		<%= prefecture_name(c.prefecture_cd) %>
+	</td>
+	<td>
+		<%= c.city %><%= c.oaza %><%= c.town %>
+	</td>
+	<td>
+	    <%= c.building_name %>
+	</td>
+	<td>
+		<%= c.created_at.localtime.strftime("%Y-%m-%d %H:%M") %>
+	</td>
+</tr>
+<% end %>

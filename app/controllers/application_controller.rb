@@ -3,7 +3,11 @@ class ApplicationController < ActionController::Base
 
   def user
     if session[:user_id]
-      user = User.find(session[:user_id])
+      begin
+        user = User.find(session[:user_id])
+      rescue
+        redirect_to '/500.html'
+      end
     end
 end
 

@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  customer_type: MyString
+  customer_id: 1
+  customer_type_name: MyString
+  zip_number: MyString
+  prefecture_cd: MyString
+  city: MyString
+  oaza: MyString
+  town: MyString
+  building_name: MyString
+  customer_type_memo: MyText
+  del_flg: false
+
+two:
+  customer_type: MyString
+  customer_id: 1
+  customer_type_name: MyString
+  zip_number: MyString
+  prefecture_cd: MyString
+  city: MyString
+  oaza: MyString
+  town: MyString
+  building_name: MyString
+  customer_type_memo: MyText
+  del_flg: false

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111225142902) do
+ActiveRecord::Schema.define(:version => 20111229071114) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,32 @@ ActiveRecord::Schema.define(:version => 20111225142902) do
     t.string   "leadsource"
     t.string   "status"
     t.string   "priority"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "codes", :id => false, :force => true do |t|
+    t.string   "code_type",  :limit => 2
+    t.string   "code_val",   :limit => 3
+    t.string   "code_name"
+    t.integer  "code_order"
+    t.boolean  "del_flg"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "customer_types", :force => true do |t|
+    t.string   "customer_type"
+    t.integer  "customer_id"
+    t.string   "customer_type_name"
+    t.string   "zip_number"
+    t.string   "prefecture_cd"
+    t.string   "city"
+    t.string   "oaza"
+    t.string   "town"
+    t.string   "building_name"
+    t.text     "customer_type_memo"
+    t.boolean  "del_flg"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

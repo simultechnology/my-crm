@@ -43,29 +43,69 @@
     <%= f.text_field :website, :maxlength => 250, :size => 50 %>
   </p>
   <p class="name">
-    <%= f.label :leadsource %>
+    リードソース
   </p>
   <p class="area">
-    <%= f.text_field :leadsource %>
+    <%= f.select:leadsource, leadsource_options %>
   </p>
   <p class="name">
-    <%= f.label :status %>
+    進捗状態
   </p>
   <p class="area">
-    <%= f.text_field :status %>
+    <%= f.select:status, status_options %>
   </p>
   <p class="name">
-    <%= f.label :priority %>
+    重要度
   </p>
   <p class="area">
-    <%= f.text_field :priority %>
+    <%= f.select:priority, priority_options %>
   </p>
-  <p class="name">
-      <%= f.label :memo %>
-  </p>
-  <p class="area">
-      <%= f.text_field :memo %>
-  </p>
+    <h2>取引先所在</h2>
+    <% @customer_types.each do |c| %>
+    <p class="btn"><input type="button" value="住所追加"><input type="reset" value="クリア"></p>
+    <p class="name">
+      <%= select_tag(:customer_type, options_for_select(customer_type_options, :selected => c.customer_type)) %>
+    </p>
+    <p class="name">名称</p>
+    <p class="area">
+      <input type="text" name="customer_type_name" size="50" maxlength="20" value="<%= c.customer_type_name %>">
+    </p>
+    <p class="name">郵便番号</p>
+    <p class="area">
+      <input type="text" name="zip_number" size="10" maxlength="7" value="<%= c.zip_number %>">
+      <input type="button" value="住所検索">
+      </p>
+    <p class="name">都道府県</p>
+    <p class="area">
+      <%= select_tag(:prefecture_cd, grouped_options_for_select(prefecture_group_options, :selected => c.prefecture_cd), :class => 'pref')  %>
+    </p>
+    <p class="name">市区町村</p>
+    <p class="area">
+      <input type="text" name="city" size="50" maxlength="20" value="<%= c.city %>">
+      </p>
+    <p class="name">大字</p>
+    <p class="area">
+      <input type="text" name="oaza" size="50" maxlength="20" value="<%= c.oaza %>">
+      </p>
+    <p class="name">丁目・番地</p>
+    <p class="area">
+      <input type="text" name="town" size="50" maxlength="20" value="<%= c.town %>">
+      </p>
+    <p class="name">ビル名</p>
+    <p class="area">
+      <input type="text" name="building_name" size="50" maxlength="20" value="<%= c.building_name %>">
+      </p>
+    <p class="name">写真アップロード</p>
+    <p class="area">
+      <input type="text" name="name" size="50" maxlength="20"><input type="button" value="参照">
+      </p>
+    <p class="name">
+      メモ
+    </p>
+    <p class="area">
+      <textarea name="customer_type_memo" rows="5" cols="42"><%= c.customer_type_memo %></textarea>
+    </p>
+        <% end %>
   <p class="btn">
     <%= f.submit :value => '登録' %>
     <input type="reset" value="リセット">

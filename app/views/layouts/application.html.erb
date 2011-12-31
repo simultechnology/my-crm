@@ -5,6 +5,21 @@
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="/assets/5509-jQselectable-1e161fe/jqselectable/style/selectable/style.css" />
+  <script src="/assets/5509-jQselectable-1e161fe/jqselectable/jqselectable.js"></script>
+  <script type="text/javascript">
+  </script>
+
+  <!-- jQueryセレクトボックス拡張 -->
+  <script type="text/javascript">
+  jQuery(function($){
+      $(".pref").jQselectable();
+  });
+  </script>
+
+
 </head>
 <body>
 <div id="container">

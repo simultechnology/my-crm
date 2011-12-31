@@ -2,6 +2,7 @@ Crm::Application.routes.draw do
   get "search/index"
 
   get "search/search"
+  post "search/search"
 
   resources :search, :controller => 'search'
 

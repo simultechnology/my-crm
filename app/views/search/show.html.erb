@@ -13,23 +13,8 @@
 				</td>
 				<td>
 					<p class="name">リードソース</p>
-					<p class="area"><select name="lead_source">
-					<option label="" value="Word of mouth"></option>
-					<option label="勧誘電話" value="Cold Call">勧誘電話</option>
-					<option label="既存顧客" value="Existing Customer">既存顧客</option>
-					<option label="自然発生" value="Self Generated">自然発生</option>
-					<option label="社員" value="Employee">社員</option>
-					<option label="パートナー" value="Partner">パートナー</option>
-					<option label="広報活動" value="Public Relations">広報活動</option>
-					<option label="ダイレクトメール" value="Direct Mail">ダイレクトメール</option>
-					<option label="カンファレンス" value="Conference">カンファレンス</option>
-					<option label="展示会" value="Trade Show">展示会</option>
-					<option label="Webサイト" value="Web Site">Webサイト</option>
-					<option label="口コミ" value="Word of mouth">口コミ</option>
-					<option label="電子メール" value="Email">電子メール</option>
-					<option label="キャンペーン" value="Campaign">キャンペーン</option>
-					<option label="その他" value="Other">その他</option>
-					</select>
+					<p class="area">
+                        <%= f.select:leadsource, leadsource_options %>
 					</p>
 				</td>
 			</tr>
@@ -50,12 +35,9 @@
 				</td>
 				<td>
 					<p class="name">重要度</p>
-					<p class="area"><select name="lead_source">
-					<option label="" value=""></option>
-					<option label="小" value="Cold Call">小</option>
-					<option label="中" value="Word of mouth">中</option>
-					<option label="大" value="Other">大</option>
-					</select></p>
+					<p class="area">
+                      <%= f.select:priority, priority_options  %>
+                    </p>
 				</td>
 			</tr>
 			</tbody>
@@ -78,65 +60,37 @@
 						<th>丁目・番地</th>
 						<th>ビル名</th>
 					</tr>
+                    <% @customertypes.each do |c| %>
 					<tr>
 						<td>
-							<a href="shozaihenshuu.html">詳細</a>
+                          <%= link_to '詳細', :controller => 'customers', :action => 'edit', :id => c.customer.id %>
 						</td>
 						<td>
-							本社
+							<%= customer_type_cd_name(c.customer_type) %>
 						</td>
 						<td>
-							lunasandの本社
+							<%= c.customer_type_name %>
 						</td>
 						<td>
-							1000000
+							<%= c.zip_number %>
 						</td>
 						<td>
-							東京都
+							<%= prefecture_name(c.prefecture_cd) %>
 						</td>
 						<td>
-							千代田区
+							<%= c.city %>
 						</td>
 						<td>
-							赤坂
+							<%= c.oaza %>
 						</td>
 						<td>
-							１－１
+                          <%= c.town %>
 						</td>
 						<td>
-							ｘｘｘビル
+                          <%= c.building_name %>
 						</td>
 					</tr>
-
-					<tr>
-						<td>
-							<a href="shozaihenshuu.html">詳細</a>
-						</td>
-						<td>
-							コース
-						</td>
-						<td>
-							千葉県ｘｘｘコース
-						</td>
-						<td>
-							2720111
-						</td>
-						<td>
-							千葉県
-						</td>
-						<td>
-							千葉市
-						</td>
-						<td>
-							千葉
-						</td>
-						<td>
-							１－１
-						</td>
-						<td>
-
-						</td>
-					</tr>
+                    <% end %>
 				</tbody></table>
 			</div>
 

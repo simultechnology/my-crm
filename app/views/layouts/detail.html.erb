@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crm</title>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="container">
+	<div id="header">
+		<div id="gnavi">
+		    <ul>
+		        <li><a href="/customers/new"><img width="90" height="33" src="/assets/1.png"></a>
+		        </li><li><a href="/search"><img width="90" height="33" src="/assets/2.png"></a>
+		        </li><li><a href="/users"><img width="90" height="33" src="/assets/3.png"></a>
+		        </li>
+            </ul>
+		</div>
+	</div>
+	<div id="wrapper">
+      <%= yield %>
+    </div>
+</div>
+</body>
+</html>

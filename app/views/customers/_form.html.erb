@@ -105,6 +105,7 @@
     <p class="area">
       <textarea name="customer_type_memo" rows="5" cols="42"><%= c.customer_type_memo %></textarea>
     </p>
+        <input type="hidden" name="customer_type_id" value="<%= c.id %>">
         <% end %>
   <p class="btn">
     <%= f.submit :value => '登録' %>

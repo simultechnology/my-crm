@@ -75,6 +75,18 @@ class CustomersController < ApplicationController
   # PUT /customers/1.json
   def update
     @customer = Customer.find(params[:id])
+    @customer_types = CustomerType.find(params[:customer_type_id])
+    @customer_types.customer_type= params[:customer_type]
+    @customer_types.customer_type_name= params[:customer_type_name]
+    @customer_types.zip_number= params[:zip_number]
+    @customer_types.prefecture_cd= params[:prefecture_cd]
+    @customer_types.city= params[:city]
+    @customer_types.oaza= params[:oaza]
+    @customer_types.town= params[:town]
+    @customer_types.building_name= params[:building_name]
+    @customer_types.customer_type_memo= params[:customer_type_memo]
+
+    @customer.customer_types << @customer_types
 
     respond_to do |format|
       if @customer.update_attributes(params[:customer])

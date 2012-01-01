@@ -55,10 +55,19 @@ class SearchController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
 
+    @search = {:name => params[:name],
+               :customer_type => params[:customer_type],
+               :leadsource => params[:leadsource],
+               :customer_type_name => params[:customer_type_name],
+               :prefecture_cd => params[:prefecture_cd],
+               :city_oaza_town => params[:city_oaza_town],
+               :building_name => params[:building_name]
+    }
+
     respond_to do |format|
       if @customer.update_attributes(params[:customer])
         flash[:notice] = '以下の情報で更新されました。'
-        format.html { render action: 'result' }
+        format.html { render action: 'result', layout: 'detail' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

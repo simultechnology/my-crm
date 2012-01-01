@@ -24,3 +24,21 @@
 </div>
 </body>
 </html>
+<script type="text/javascript">
+(function(){
+    $('#google_map_button').click(function() {
+        var url = "/sub.html";
+        var windowName = "MapWindow";
+        var winWidth = "600";
+        var winHeight = "0600";
+        var x = (screen.width - winWidth) / 2;
+        var y = (screen.height - winHeight) / 2;
+        var options = "width=" + winWidth + ", \
+               height=" + winHeight + ", \
+               left="+ x + ", \
+               top=" + y;
+        open(url, windowName, options);
+
+    });
+})();
+</script>

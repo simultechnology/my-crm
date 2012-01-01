@@ -15,7 +15,7 @@
   <!-- jQueryセレクトボックス拡張 -->
   <script type="text/javascript">
   jQuery(function($){
-      $(".pref").jQselectable();
+      //$(".pref").jQselectable();
   });
   </script>
 
@@ -52,3 +52,62 @@
 
 </body>
 </html>
+<script type="text/javascript"
+  src="http://developmentor.lrlab.to/postal/js/postalua.js">
+</script>
+<script type="text/javascript">
+    //(function(){
+    //    $('#postal_search_button').click(function() {
+    //        //var zipNumber = $('#input_zip_number').val();
+    //        //$('#lookup').click(function() {
+    //            $('#c').lookupTo('#a');
+    //        //});
+    //
+    //    });
+    //})();
+
+
+jQuery(function($) {
+  $('#lookup').click(function() {
+    $.lookup($('#input_zip_number').val(), function(res) {
+        var prefectureName = "";
+        var city = "";
+        $.each(res, function() {
+           var locations = this.a.split(" ");
+           for (var i = 0; i < locations.length; i++) {
+               if (i === 0) {
+                   prefectureName = locations[i];
+               }
+               else {
+                   city += locations[i];
+               }
+           }
+        });
+
+        var newValue = "";
+        $("#prefecture_cd option").each(function() {
+            if (this.selected) {
+                console.log(this);
+                $(this).selected = false;
+            }
+            if (prefectureName === this.label) {
+                newValue = this.value;
+                console.log($('#prefecture_cd').val());
+                $('#prefecture_cd').val(this.value);
+                $(this).selected = true;
+                //$("#prefecture_cd").jQselectable({
+                //    selectedIndex: 1
+                //});
+            }
+        });
+
+
+
+        $('#input_city').val("");
+        $('#input_city').val(city);
+    });
+  });
+
+});
+</script>
+

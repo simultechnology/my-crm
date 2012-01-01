@@ -72,8 +72,8 @@
     </p>
     <p class="name">郵便番号</p>
     <p class="area">
-      <input type="text" name="zip_number" size="10" maxlength="7" value="<%= c.zip_number %>">
-      <input type="button" value="住所検索">
+      <input type="text" id="input_zip_number" name="zip_number" size="10" maxlength="7" value="<%= c.zip_number %>">
+      <input type="button" id="lookup" value="住所検索">
       </p>
     <p class="name">都道府県</p>
     <p class="area">
@@ -81,7 +81,7 @@
     </p>
     <p class="name">市区町村</p>
     <p class="area">
-      <input type="text" name="city" size="50" maxlength="20" value="<%= c.city %>">
+      <input type="text" id="input_city" name="city" size="50" maxlength="20" value="<%= c.city %>">
       </p>
     <p class="name">大字</p>
     <p class="area">

@@ -112,47 +112,48 @@
 						<th>家族構成</th>
 						<th>趣味</th>
 					</tr>
+                    <% @contacts.each do |c| %>
 					<tr>
 						<td>
-							<a href="shozaihenshuu.html">詳細</a>
+                          <%= link_to '詳細', :controller => 'contacts', :action => 'edit', :id => c.id %>
 						</td>
 						<td>
-							ｘｘ事業部
+							<%= c.section_name %>
 						</td>
 						<td>
-							山田太郎
+							<%= c.contact_name %>
 						</td>
 						<td>
-							ヤマダタロウ
+                          <%= c.contact_name_kana %>
 						</td>
 						<td>
-							03-0000-0000
+                          <%= c.office_tel_number %>
 						</td>
 						<td>
-							090-0000-0000
+                          <%= c.mobile_tel_number %>
 						</td>
 						<td>
-							03-0000-0000
+                          <%= c.contact_fax_number %>
 						</td>
 						<td>
-							aa@a.a
+                          <%= c.contact_email %>
 						</td>
 						<td>
-							社長
+                          <%= c.position %>
 						</td>
 						<td>
-							1970/1/1
+                          <%= c.birthday %>
 						</td>
 						<td>
-							嫁、長女、長男
+                          <%= c.family_member %>
 						</td>
 						<td>
-							釣り
+                          <%= c.favorite %>
 						</td>
 					</tr>
+                    <% end %>
 				</tbody></table>
 			</div>
-
 
 			<div id="shoudan">
 				<h2>商談一覧　<input type="button" value="一覧表示"></h2>

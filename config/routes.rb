@@ -1,14 +1,16 @@
 Crm::Application.routes.draw do
-  get "search/index"
+  resources :contacts
 
+  get "search/index"
   get "search/search"
   post "search/search"
+  get "search/customer_search"
+  get "search/customer_search_list"
+  post "search/customer_search_list"
 
   resources :search, :controller => 'search'
 
-  resources :clients
-
-  resources :products
+  get "customers/list"
 
   resources :customers
 

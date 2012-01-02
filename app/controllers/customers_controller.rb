@@ -3,13 +3,17 @@ class CustomersController < ApplicationController
   before_filter :authorize
   # GET /customers
   # GET /customers.json
-  def index
+  def list
     @customers = Customer.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render action: "index" }
       format.json { render json: @customers }
     end
+  end
+
+  def index
+    redirect_to '/500.html'
   end
 
   # GET /customers/1

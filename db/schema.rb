@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111229071114) do
+ActiveRecord::Schema.define(:version => 20120101102428) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -31,6 +31,25 @@ ActiveRecord::Schema.define(:version => 20111229071114) do
     t.string   "code_val",   :limit => 3
     t.string   "code_name"
     t.integer  "code_order"
+    t.boolean  "del_flg"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "contacts", :force => true do |t|
+    t.integer  "customer_id"
+    t.string   "section_name"
+    t.string   "contact_name"
+    t.string   "contact_name_kana"
+    t.string   "position"
+    t.string   "office_tel_number"
+    t.string   "mobile_tel_number"
+    t.string   "contact_fax_number"
+    t.string   "contact_email"
+    t.date     "birthday"
+    t.string   "family_member"
+    t.text     "favorite"
+    t.text     "contact_memo"
     t.boolean  "del_flg"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -78,4 +78,15 @@ module ApplicationHelper
     end
   end
 
+  # 日本語日付選択
+  def date_select_jp(object_name, method, options={ })
+    options[:use_month_numbers] = true unless options[:use_month_numbers]
+    t = date_select(object_name, method, options)
+    if options[:discard_day]
+      t.sub(/<\/select>(.+?)<\/select>/m, "</select>年\\1</select>月")
+    else
+      t.sub(/<\/select>(.+?)<\/select>(.+?)<\/select>/m, "</select>年\\1</select>月\\2</select>日")
+    end
+  end
+
 end

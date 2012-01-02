@@ -1,0 +1,70 @@
+<div id="lower">
+  <h2>取引先一覧</h2>
+  <table class="ichiran">
+    <tbody>
+    <tr>
+      <th>選択</th>
+      <th>商談回数</th>
+      <th>活動回数</th>
+      <th>重要度</th>
+      <th>会社名</th>
+      <th>リードソース</th>
+      <th>分類</th>
+      <th>名称</th>
+      <th>都道府県</th>
+      <th>市区町村</th>
+      <th>ビル名</th>
+      <th>登録日</th>
+    </tr>
+    <% @customertypes.each do |c| %>
+        <tr>
+          <td>
+            <input type="button" value="適用" onclick="sendToParent('<%= c.customer.id %>', '<%= c.customer.name %>', '<%= c.customer.tel_number %>')">
+          </td>
+          <td>
+            １０
+          </td>
+          <td>
+            ３０
+          </td>
+          <td>
+            <%= priority_name(c.customer.priority) %>
+          </td>
+          <td>
+            <%= c.customer.name %>
+          </td>
+          <td>
+            <%= leadsource_name(c.customer.leadsource) %>
+          </td>
+          <td>
+            <%= customer_type_cd_name(c.customer_type) %>
+          </td>
+          <td>
+            <%= c.customer_type_name %>
+          </td>
+          <td>
+            <%= prefecture_name(c.prefecture_cd) %>
+          </td>
+          <td>
+            <%= c.city %><%= c.oaza %><%= c.town %>
+          </td>
+          <td>
+            <%= c.building_name %>
+          </td>
+          <td>
+            <%= c.created_at.localtime.strftime("%Y-%m-%d %H:%M") %>
+          </td>
+        </tr>
+    <% end %>
+    </tbody>
+  </table>
+</div>
+<script type="text/javascript">
+    function sendToParent(id, name, telNumber) {
+        var form = window.opener.document.getElementById('new_contact');
+        form.contact_office_tel_number.value = telNumber;
+        form.contact_customer_id.value = id;
+        form.input_customer_name.value = name;
+        window.close();
+    }
+</script>

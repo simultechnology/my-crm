@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Customer:</b>
+  <%= @contact.customer_id %>
+</p>
+
+<p>
+  <b>Section name:</b>
+  <%= @contact.section_name %>
+</p>
+
+<p>
+  <b>Contact name:</b>
+  <%= @contact.contact_name %>
+</p>
+
+<p>
+  <b>Contact name kana:</b>
+  <%= @contact.contact_name_kana %>
+</p>
+
+<p>
+  <b>Position:</b>
+  <%= @contact.position %>
+</p>
+
+<p>
+  <b>Office tel number:</b>
+  <%= @contact.office_tel_number %>
+</p>
+
+<p>
+  <b>Mobile tel number:</b>
+  <%= @contact.mobile_tel_number %>
+</p>
+
+<p>
+  <b>Contact fax number:</b>
+  <%= @contact.contact_fax_number %>
+</p>
+
+<p>
+  <b>Contact email:</b>
+  <%= @contact.contact_email %>
+</p>
+
+<p>
+  <b>Birthday:</b>
+  <%= @contact.birthday %>
+</p>
+
+<p>
+  <b>Family member:</b>
+  <%= @contact.family_member %>
+</p>
+
+<p>
+  <b>Favorite:</b>
+  <%= @contact.favorite %>
+</p>
+
+<p>
+  <b>Contact memo:</b>
+  <%= @contact.contact_memo %>
+</p>
+
+<p>
+  <b>Del flg:</b>
+  <%= @contact.del_flg %>
+</p>
+
+
+<%= link_to 'Edit', edit_contact_path(@contact) %> |
+<%= link_to 'Back', contacts_path %>

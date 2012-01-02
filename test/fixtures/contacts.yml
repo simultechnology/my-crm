@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  customer_id: 1
+  section_name: MyString
+  contact_name: MyString
+  contact_name_kana: MyString
+  position: MyString
+  office_tel_number: MyString
+  mobile_tel_number: MyString
+  contact_fax_number: MyString
+  contact_email: MyString
+  birthday: 2012-01-01
+  family_member: MyString
+  favorite: MyText
+  contact_memo: MyText
+  del_flg: false
+
+two:
+  customer_id: 1
+  section_name: MyString
+  contact_name: MyString
+  contact_name_kana: MyString
+  position: MyString
+  office_tel_number: MyString
+  mobile_tel_number: MyString
+  contact_fax_number: MyString
+  contact_email: MyString
+  birthday: 2012-01-01
+  family_member: MyString
+  favorite: MyText
+  contact_memo: MyText
+  del_flg: false

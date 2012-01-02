@@ -1,0 +1,119 @@
+<%= form_for(@contact) do |f| %>
+  <% if @contact.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+
+      <ul>
+      <% @contact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p></p>
+  <br>
+  <h2>基本情報</h2>
+  <p class="name">
+    会社名
+  </p>
+  <p class="area">
+    <input type="text" maxlength="20" size="50" id="input_customer_name" name="name" value="<%= @contact.customer.name if !@contact.customer.nil? %>">
+    <input type="button" id="customer_search_button" value="会社検索">
+    <%= f.hidden_field :customer_id %>
+  </p>
+  <p class="name">
+    部署名
+  </p>
+  <p class="area">
+    <%= f.text_field :section_name, :maxlength => 15, :size => 15 %>
+  </p>
+  <p class="name">
+    名前
+  </p>
+  <p class="area">
+    <%= f.text_field :contact_name, :maxlength => 15, :size => 15 %>
+  </p>
+  <p class="name">
+    フリガナ
+  </p>
+  <p class="area">
+    <%= f.text_field :contact_name_kana, :maxlength => 15, :size => 15 %>
+  </p>
+  <p class="name">
+    会社電話番号
+  </p>
+  <p class="area">
+  <%= f.text_field :office_tel_number, :maxlength => 15, :size => 15 %>
+  </p>
+  <p class="name">
+    携帯電話
+  </p>
+  <p class="area">
+    <%= f.text_field :mobile_tel_number, :maxlength => 15, :size => 15 %>
+  </p>
+  <p class="name">
+    FAX
+  </p>
+  <p class="area">
+    <%= f.text_field :contact_fax_number, :maxlength => 15, :size => 15 %>
+  </p>
+  <p class="name">
+    E-mail
+  </p>
+  <p class="area">
+    <%= f.text_field :contact_email, :size => 15 %>
+  </p>
+  <p class="name">
+    職位
+  </p>
+  <p class="area">
+    <%= f.text_field :position, :maxlength => 15, :size => 15 %>
+  </p>
+  <p class="name">
+    誕生日
+  </p>
+  <p class="area">
+    <%= raw date_select_jp('contact', 'birthday', :start_year => 1900, :use_month_numbers => true ) %>
+  </p>
+  <p class="name">
+    家族構成
+  </p>
+  <p class="area">
+    <%= f.text_field :family_member, :maxlength => 15, :size => 15 %>
+  </p>
+  <p class="name">
+    趣味
+  </p>
+  <p class="area">
+    <%= f.text_field :favorite, :maxlength => 15, :size => 15 %>
+  </p>
+  <p class="name">
+    メモ
+  </p>
+  <p class="area">
+    <%= f.text_field :contact_memo, :maxlength => 20, :size => 50 %>
+  </p>
+  <p class="btn">
+    <%= f.submit :value => '登録' %>
+    <input type="reset" value="リセット">
+  </p>
+<% end %>
+<script type="text/javascript">
+(function(){
+$('#customer_search_button').click(function() {
+var url = "/search/customer_search";
+var windowName = "取引先検索";
+var winWidth = 1024;
+var winHeight = 550;
+var x = (screen.width - winWidth) / 2;
+var y = (screen.height - winHeight) / 2;
+var options = "width=" + winWidth + ", \
+               height=" + winHeight + ", \
+               left="+ x + ", \
+               top=" + y;
+open(url, windowName, options);
+
+});
+})();
+</script>
+

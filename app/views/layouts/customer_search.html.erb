@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Crm</title>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="container">
+  <div id="wrapper">
+    <div id="upper">
+      <h1>取引先検索</h1>
+    </div>
+
+    <div class="middle">
+      <h2>検索条件</h2>
+      <p></p>
+      <%= form_tag :action => 'customer_search_list' do |f| %>
+          <p></p>
+          <table>
+            <tbody><tr>
+              <td>
+                <p class="name">会社名</p>
+                <p class="area">
+                  <input type="checkbox" value="その1" name="q1">
+                  <input type="text" maxlength="20" size="50" name="name" >
+                </p>
+              </td>
+              <td>
+                <p class="name">リードソース</p>
+                <p class="area"><input type="checkbox" value="その1" name="q1">
+                  <%= select_tag(:leadsource, options_for_select(leadsource_options)) %>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p class="name">分類</p>
+                <p class="area">
+                  <input type="checkbox" value="その1" name="q1">
+                  <%= select_tag(:customer_type, options_for_select(customer_type_options)) %>
+                </p>
+              </td>
+              <td>
+                <p class="name">名称</p>
+                <p class="area"><input type="checkbox" value="その1" name="q1">
+                  <input type="text" maxlength="20" size="50" name="customer_type_name" ></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p class="name">都道府県</p>
+                <p class="area">
+                  <input type="checkbox" value="その1" name="q1">
+                  <%= select_tag(:prefecture_cd, options_for_select(prefecture_options)) %>
+                </p>
+              </td>
+              <td>
+                <p class="name">市区町村</p>
+                <p class="area"><input type="checkbox" value="その1" name="q1">
+                  <input type="text" maxlength="20" size="50" name="city_oaza_town" ></p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p class="name">ビル名</p>
+                <p class="area">
+                  <input type="checkbox" value="その1" name="q1">
+                  <input type="text" maxlength="20" size="50" name="building_name" >
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p class="btn">
+                  <input type="submit" value="検索" >
+                </p>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+      <% end %>
+    </div>
+    <%= yield %>
+  </div>
+</div>
+</body>
+</html>
+

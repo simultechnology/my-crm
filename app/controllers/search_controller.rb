@@ -12,7 +12,8 @@ class SearchController < ApplicationController
   end
 
   def search
-    @search = {:name => params[:name],
+    @search = {:select_menu => params[:select_menu],
+               :name => params[:name],
                :customer_type => params[:customer_type],
                :leadsource => params[:leadsource],
                :customer_type_name => params[:customer_type_name],
@@ -21,9 +22,6 @@ class SearchController < ApplicationController
                :building_name => params[:building_name]
               }
     conditions = []
-    #@search.each do |k, v|
-    #  conditions.push("#{k} = '#{v}'") if v != nil
-    #end
     conditions.push("customers.name like '%#{@search[:name]}%'") if !@search[:name].blank?
     conditions.push("customer_type = '#{@search[:customer_type]}'") if !@search[:customer_type].blank?
     conditions.push("customers.leadsource = '#{@search[:leadsource]}'") if !@search[:leadsource].blank?
@@ -37,6 +35,39 @@ class SearchController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @customers }
+    end
+  end
+
+  def contact_search
+    @search = {:select_menu => params[:select_menu],
+               :name => params[:name],
+               :customer_type_name => params[:customer_type_name],
+               :contact_name => params[:contact_name],
+               :contact_name_kana => params[:contact_name_kana],
+               :birthday_year => params[:contact]['birthday(1i)'],
+               :birthday_month => params[:contact]['birthday(2i)'],
+               :birthday_day => params[:contact]['birthday(3i)'],
+               :position => params[:position],
+               :favorite => params[:favorite]
+    }
+
+    Rails.logger.debug(@search[:birthday_month]);
+
+    conditions = []
+    conditions.push("customers.name like '%#{@search[:name]}%'") if !@search[:name].blank?
+    conditions.push("contact_name like '%#{@search[:contact_name]}%'") if !@search[:contact_name].blank?
+    conditions.push("contact_name_kana like '%#{@search[:contact_name_kana]}%'") if !@search[:contact_name_kana].blank?
+    conditions.push("date_part('year', birthday) = '#{@search[:birthday_year]}'") if !@search[:birthday_year].blank?
+    conditions.push("date_part('month', birthday) = '#{@search[:birthday_month]}'") if !@search[:birthday_month].blank?
+    conditions.push("date_part('day', birthday) = '#{@search[:birthday_day]}'") if !@search[:birthday_day].blank?
+    conditions.push("position = '#{@search[:position]}'") if !@search[:position].blank?
+    conditions.push("favorite = '#{@search[:favorite]}'") if !@search[:favorite].blank?
+    condition_part = conditions.join(" and ") if conditions.size > 0
+    @contacts = Contact.find(:all, :conditions => condition_part, :include => :customer, :order => 'contacts.updated_at DESC')
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @contacts }
     end
   end
 
@@ -57,9 +88,6 @@ class SearchController < ApplicationController
                :building_name => params[:building_name]
     }
     conditions = []
-    #@search.each do |k, v|
-    #  conditions.push("#{k} = '#{v}'") if v != nil
-    #end
     conditions.push("customers.name like '%#{@search[:name]}%'") if !@search[:name].blank?
     conditions.push("customer_type = '#{@search[:customer_type]}'") if !@search[:customer_type].blank?
     conditions.push("customers.leadsource = '#{@search[:leadsource]}'") if !@search[:leadsource].blank?

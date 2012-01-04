@@ -7,6 +7,8 @@ Crm::Application.routes.draw do
   get "search/customer_search"
   get "search/customer_search_list"
   post "search/customer_search_list"
+  get "search/contact_search"
+  post "search/contact_search"
 
   resources :search, :controller => 'search'
 

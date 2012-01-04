@@ -17,6 +17,7 @@
   jQuery(function($){
       //$(".pref").jQselectable();
   });
+
   </script>
 
 
@@ -34,7 +35,7 @@
 		</div>
 	</div>
 
-	<div id="wrapper">
+	<div id="register_wrapper">
 		<div id="left">
 		    <p><a href="/customers/new"><img width="120" height="33" src="/assets/a1.png"></a></p>
 		    <p><a href="/contacts/new"><img width="120" height="33" src="/assets/a2.png"></a></p>
@@ -52,3 +53,11 @@
 
 </body>
 </html>
+
+<script type="text/javascript">
+var b_height = $('html').height();
+var g_height = $('div#gnavi').height();
+var height = b_height - 160;
+$('div#register_wrapper').css('height', height);
+</script>
+

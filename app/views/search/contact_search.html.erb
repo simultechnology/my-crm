@@ -1,0 +1,58 @@
+<div id="lower">
+<h2>取引先一覧</h2>
+<table class="ichiran">
+	<tbody>
+        <tr>
+		<th>選択</th>
+		<th>会社名</th>
+		<th>部署名</th>
+		<th>名前</th>
+		<th>フリガナ</th>
+		<th>役職</th>
+		<th>携帯電話</th>
+		<th>E-mail</th>
+		<th>誕生日</th>
+		<th>趣味</th>
+		<th>登録日</th>
+	    </tr>
+
+<% @contacts.each do |c| %>
+<tr>
+	<td>
+      <%= link_to '詳細', :controller => 'contacts', :action => 'edit', :id => c.id %>
+	</td>
+	<td>
+      <%= c.customer.name %>
+	</td>
+	<td>
+      <%= c.section_name %>
+	</td>
+	<td>
+      <%= c.contact_name %>
+	</td>
+	<td>
+      <%= c.contact_name_kana %>
+	</td>
+    <td>
+      <%= c.position %>
+    </td>
+	<td>
+      <%= c.mobile_tel_number %>
+	</td>
+	<td>
+      <%= c.contact_email %>
+	</td>
+	<td>
+      <%= c.birthday %>
+	</td>
+	<td>
+	  <%= c.favorite %>
+	</td>
+	<td>
+      <%= c.created_at.localtime.strftime("%Y-%m-%d %H:%M") %>
+	</td>
+</tr>
+<% end %>
+    </tbody>
+</table>
+</div>

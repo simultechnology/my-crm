@@ -6,6 +6,11 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
+<style type="text/css">
+  div.middle {
+      display: none;
+  }
+</style>
 <body>
 <div id="container">
 	<div id="header">
@@ -24,18 +29,17 @@
 	<h1>検索</h1>
 	<h2>検索対象</h2>
 	<p class="name"></p>
-	<p class="area"><select name="pref_name">
-	<option value="取引先">取引先
-	</option><option value="連絡先">連絡先
-	</option><option value="商談">商談
-	</option><option value="活動">活動
-	</option></select></p>
+	<p class="area">
+      <%= select_tag(:select_menu, options_for_select([['取引先', '1'],['連絡先', '2'],['商談', '3'], ['活動', '4']],
+                                                      :selected => @search[:select_menu])) %>
+    </p>
 </div>
 
-<div class="middle">
+<div class="middle" id="customer_search">
 <h2>検索条件</h2>
 <p></p>
     <%= form_tag :action => 'search' do |f| %>
+    <input type="hidden" name="select_menu" value="<%= @search[:select_menu] %>">
     <p></p>
 <table>
 <tbody><tr>
@@ -101,29 +105,105 @@
 </table>
 <% end %>
 </div>
-<div id="lower">
-<h2>取引先一覧</h2>
-<table class="ichiran">
-	<tbody>
+
+<div class="middle" id="contact_search" >
+  <h2>検索条件</h2>
+  <p></p>
+  <%= form_tag :action => 'contact_search' do |f| %>
+      <input type="hidden" name="select_menu" value="<%= @search[:select_menu] %>">
+      <p></p>
+      <table>
+        <tbody><tr>
+          <td>
+            <p class="name">会社名</p>
+            <p class="area">
+              <input type="checkbox" value="その1" name="q1">
+              <input type="text" maxlength="20" size="50" name="name" value="<%= @search[:name] %>">
+            </p>
+          </td>
+          <td>
+            <p class="name">名称</p>
+            <p class="area"><input type="checkbox" value="その1" name="q1">
+              <input type="text" maxlength="20" size="50" name="customer_type_name" value="<%= @search[:customer_type_name] %>"></p>
+          </td>
+        </tr>
         <tr>
-		<th>選択</th>
-		<th>商談回数</th>
-		<th>活動回数</th>
-		<th>重要度</th>
-		<th>会社名</th>
-		<th>リードソース</th>
-		<th>分類</th>
-		<th>名称</th>
-		<th>都道府県</th>
-		<th>市区町村</th>
-		<th>ビル名</th>
-		<th>登録日</th>
-	    </tr>
-      <%= yield %>
-    </tbody>
-</table>
+          <td>
+            <p class="name">名前</p>
+            <p class="area"><input type="checkbox" value="その1" name="q1">
+              <input type="text" maxlength="20" size="50" name="contact_name" value="<%= @search[:contact_name] %>"></p>
+          </td>
+          <td>
+            <p class="name">フリガナ</p>
+            <p class="area"><input type="checkbox" value="その1" name="q1">
+              <input type="text" maxlength="20" size="50" name="contact_name_kana" value="<%= @search[:contact_name_kana] %>"></p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p class="name">誕生日</p>
+            <p class="area">
+              <input type="checkbox" value="その1" name="q1">
+              <%= raw date_select_jp('contact', 'birthday', :start_year => 1900,
+                                     :use_month_numbers => true, :include_blank => true) %>
+            </p>
+          </td>
+          <td>
+            <p class="name">職位</p>
+            <p class="area"><input type="checkbox" value="その1" name="q1">
+              <input type="text" maxlength="20" size="50" name="position" value="<%= @search[:position] %>"></p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p class="name">趣味</p>
+            <p class="area">
+              <input type="checkbox" value="その1" name="q1">
+              <input type="text" maxlength="20" size="50" name="favorite" value="<%= @search[:favorite] %>">
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p class="btn">
+              <input type="submit" value="検索" >
+            </p>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+  <% end %>
 </div>
+      <%= yield %>
 	</div>
 </div>
 </body>
 </html>
+<script type="text/javascript">
+  var selectMenu = $('select#select_menu').val();
+  console.log("selectMenu : " + selectMenu);
+  if (selectMenu === '' || selectMenu === '1') {
+      $('#customer_search').css('display', 'block');
+  }
+  else if (selectMenu === '2') {
+      $('#contact_search').css('display', 'block');
+  }
+
+  $('#contact_birthday_1i').val(<%= @search[:birthday_year] %>);
+  $('#contact_birthday_2i').val(<%= @search[:birthday_month] %>);
+  $('#contact_birthday_3i').val(<%= @search[:birthday_day] %>);
+
+
+  $('select#select_menu').change(function() {
+      var menu_val = $(this).val();
+      $("input[name='select_menu']").val(menu_val);
+      $('div.middle').css('display', 'none');
+      $('div#lower').css('display', 'none');
+      if (menu_val === '1') {
+          $('#customer_search').css('display', 'block');
+      }
+      else if (menu_val === '2') {
+          $('#contact_search').css('display', 'block');
+      }
+  });
+</script>
